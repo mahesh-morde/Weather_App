@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App ⭐</title>
+  
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=0.95"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+<html lang="en">
+<div class="wrapper">
+  <div class="align">
+		<p id="forget"><strong>Welcome To</strong><br><br><strong>Weather Station</strong></p>
+		
+		<div class="app">
+			<div id="main">
+			<!-- Settings Menu -->
+				<div id="introscreen"><img src="https://www.shutterstock.com/shutterstock/videos/1090948483/thumb/1.jpg?ip=x480"></div>
+
+			<!-- Settings Button -->
+				<span id="btn-right">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			<!-- End Settings Button -->
+				
+				<!-- Info Message-->
+				<div id="info-msg">
+					<div class="msg-box">
+						<h1></h1>
+						<p></p>
+					</div>
+				</div>
+				<!-- End Info Message-->
+				
+				<div id="settings" class="">
+					
+					<p id="settings-info"><i class="fa fa-cog" aria-hidden="true"></i> Settings</p>
+		
+					<div class="search-container">
+						<label>
+							<input autocomplete="off" type="text" class="search" id="city" placeholder="Search City..." required/>
+							<i class="fa fa-search" aria-hidden="true"></i>
+							<button type="button" class="update-button" id="now" placeholder="Update">Update</button>	
+						</label>
+					</div>
+					<ul>
+						<li>
+							<div class="text">
+								<p>Temperature Unit</p>
+							</div>			
+							<label class="switch">
+								<input type="checkbox" id="unit">
+								<div class="slider">
+									<p class="left"><i class="c" aria-hidden="true">°C</i></p>
+									<p class="right"><i class="f" aria-hidden="true">°F</i></p>
+								</div>
+							</label>
+							<div class="sub-info">Choose between ºC or ºF.</div>
+						</li>
+						
+						<li>
+							<div class="text">
+								<p>Atmospheric Conditions</p>
+							</div>					
+							<label class="switch">
+								<input type="checkbox" id="atm">
+								<div class="slider">
+									<p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+									<p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+								</div>
+							</label>
+							<div class="sub-info">Humidity & Cloude pct.</div>
+						</li>
+						
+						<li>
+							<div class="text">
+								<p>Max/Min Temperature</p>	
+							</div>	
+							<label class="switch">
+								<input type="checkbox" id="sun">
+								<div class="slider">
+									<p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+									<p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+								</div>
+							</label>
+							<div class="sub-info">Maximum and Minimum Temperature.</div>
+						</li>
+						
+						<li>
+							<div class="text">
+								<p>Wind Conditions</p>
+							</div>	
+							<label class="switch">
+								<input type="checkbox" id="wind">
+								<div class="slider">
+									<p class="left"><i class="fa fa-check" aria-hidden="true"></i></p>
+									<p class="right"><i class="fa fa-times" aria-hidden="true"></i></p>
+								</div>
+							</label>
+							<div class="sub-info">Chill and the speed of the wind.</div>
+						</li>
+
+						<li>
+							<div class="text">
+								<p>Choose a theme</p>
+								<div class="row">
+									<span class="green"></span>
+									<span class="turqoise"></span>
+									<span class="blue"></span>
+									<span class="purple"></span>
+								</div>
+							</div>
+							<div class="sub-info">Select the desired theme. Press the "Save" button to update the theme!</div>
+						</li>
+					
+					</ul>
+					
+					<button type="button" id="save-button" placeholder="Update">Save</button>
+
+					
+				</div>
+				<!-- End Settings Menu  -->
+				
+				<div id="central">
+					<div id="top-menu-info">
+						<p id="location">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							<span id="cityName"></span>
+						</p>
+					
+					</div>
+					
+					<div id="temp-div">
+					
+					<div id="icon-temp">
+							<i class="wi wi-day-cloudy" aria-hidden="true"></i>
+							<i class="wi wi-humidity" aria-hidden="true"></i>
+						</div>						
+						<p id="current-temp-big">				
+							<br>
+							<br>
+						
+							<span id="ctb"><span id="temp"></span></span>
+							<span id="ctbicon">ºC</span>
+			
+						</p>
+					</div>
+										
+					<div id="weather-menu">
+						<span href="#" id="weather-menu-btn">
+							<i class="fa fa-chevron-up" aria-hidden="true"></i>
+						</span>
+						
+						<ul>
+							<li id="atmli">
+								<p class="li_title">Atmospheric Conditions</p>
+								<div id="humidity" class="col-1">
+									<i class="wi wi-humidity" aria-hidden="true"></i>
+									<span>Humidity % <br> <span id="hd"><p id="humidity1"></p></span></span>
+								</div>
+								
+								<div id="visibility" class="col-3">
+									<i class="wi wi-day-fog" aria-hidden="true"></i>
+									<span>Clouds pct<br>  <span id="vd"><p id="cloud_pct"></p></span></span>
+								</div>
+							</li>
+							<li id="sunli">
+								<p class="li_title">Max/Min Temp</p>
+								<div id="sunset" class="col-3">
+									<i class="wi wi-sunset" aria-hidden="true"></i>
+									<span>Min-Temp ºC<br> <span id="ssd"><p id="min_temp"></p></span></span>
+								</div>
+								<div id="sunrise" class="col-1">
+									<i class="wi wi-sunrise" aria-hidden="true"></i>
+									<span>Max-Temp ºC<br> <span id="srd"><p id="max_temp"></p></span></span>
+								</div>
+							</li>
+							<li id="windli">
+								<p class="li_title">Wind Conditions</p>
+								<div id="chill" class="col-1">
+									<i class="wi wi-thermometer-exterior
+" aria-hidden="true"></i>
+									<span>Feels Like ºC <br> <span id="cd"><p id="feels_like"></p></span></span>
+								</div>
+								<div class="col-3 day10item">
+												<i class="wi wi-day-rain" aria-hidden="true"></i>
+									<span>wind Degrees<br> <span id="dd"><p id="wind_degrees"> </p></span></span>
+								</div>
+								<div id="speed" class="col-3">
+									<i class="wi wi-strong-wind" aria-hidden="true"></i>
+									<span>Speed km/h <br> <span id="sd"><p id="wind_speed"></p></span></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>						
+				
+			</div>
+		</div>
+		
+		<p id="copyright">Made by&nbsp;<strong><a href="https://www.linkedin.com/in/mahesh-m-654010139" target="_blank" rel="noopener">Mahesh Morde</a></strong></p>
+	</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script><script  src="./script.js"></script>
+  
+  <script>
+  const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': 'e369948956mshe9c39e9b5ceefccp15f01ejsn276c0d7d72ef',
+			'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+		}
+	};
+
+	const resultDiv = document.querySelector('.result');
+	const weather = (city) => {
+		cityName.innerHTML = city;
+		fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+city, options)
+			.then(response => response.json())
+			.then(response => {
+				console.log(response);
+				temp.innerHTML = response.temp;
+				feels_like.innerHTML = response.feels_like;
+				humidity1.innerHTML = response.humidity;
+				wind_speed.innerHTML = response.wind_speed;
+				max_temp.innerHTML = response.max_temp;
+				min_temp.innerHTML = response.min_temp;	
+				cloud_pct.innerHTML = response.cloud_pct;
+				wind_degrees.innerHTML = response.wind_degrees;
+			})
+			.catch(err => console.error(err));
+	}
+	
+	now.addEventListener("click", (e) => {
+		e.preventDefault()
+		weather(city.value);
+	})
+	
+  </script>
+
+</body>
+</html>
